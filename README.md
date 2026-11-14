@@ -105,7 +105,9 @@ makepkg -si                 # clones upstream, builds, tests, installs
   `makepkg --printsrcinfo > .SRCINFO` before pushing to the AUR.
 - Uninstall with `sudo pacman -R studyplan-git`. Your data in
   `~/.local/share/studyplan/` is not touched.
-- To publish, push `PKGBUILD` and `.SRCINFO` to
+- The `packaging/arch/` files themselves are licensed under 0BSD
+  (`packaging/arch/LICENSE`), as the AUR requires for submitted package sources.
+- To publish, push `PKGBUILD`, `.SRCINFO` and `LICENSE` to
   `ssh://aur@aur.archlinux.org/studyplan-git.git`.
 
 ## Data
