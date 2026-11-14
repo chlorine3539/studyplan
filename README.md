@@ -4,6 +4,10 @@ Track YouTube course playlists, set how many hours you study per day, and get a
 daily to-do list of videos that fit that budget — with a terminal UI showing
 progress per course.
 
+<p align="center">
+  <img src="assets/courses-tab.png" alt="studyplan Courses Tab" width="70%">
+</p>
+
 ## Requirements
 
 - Rust (edition 2024, i.e. Rust 1.85+)
