@@ -76,39 +76,19 @@ studyplan remove <course>
   again. `r` / `today --refresh` re-plans the unwatched part.
 - Progress percentages are weighted by video length, not video count.
 
-## Arch Linux package (AUR)
+## Arch Linux (AUR)
 
-`packaging/arch/` contains the files for the AUR package
-[`studyplan-git`](https://aur.archlinux.org/packages/studyplan-git), which builds
-the latest upstream git HEAD. The binary is installed as `/usr/bin/studyplan`,
-the README in `/usr/share/doc/studyplan/` and the license in
-`/usr/share/licenses/studyplan/`. `yt-dlp` is a runtime dependency, so pacman
-installs it for you.
+The [`studyplan-git`](https://aur.archlinux.org/packages/studyplan-git) package
+builds the latest git revision:
 
 ```sh
 yay -S studyplan-git        # or: paru -S studyplan-git
 ```
 
-To build the package locally:
-
-```sh
-cd packaging/arch
-makepkg -si                 # clones upstream, builds, tests, installs
-```
-
-- The package builds from the git remote, so push your changes to GitHub before
-  testing a new version.
-- `pkgver()` combines the version in `Cargo.toml` with the commit count and short
-  hash (`0.1.0.r42.gabc1234`), so every upstream commit is a new package version.
-- `makepkg` runs `cargo test` in `check()`; add `--nocheck` to skip it.
-- After editing the `PKGBUILD`, regenerate the metadata with
-  `makepkg --printsrcinfo > .SRCINFO` before pushing to the AUR.
-- Uninstall with `sudo pacman -R studyplan-git`. Your data in
-  `~/.local/share/studyplan/` is not touched.
-- The `packaging/arch/` files themselves are licensed under 0BSD
-  (`packaging/arch/LICENSE`), as the AUR requires for submitted package sources.
-- To publish, push `PKGBUILD`, `.SRCINFO` and `LICENSE` to
-  `ssh://aur@aur.archlinux.org/studyplan-git.git`.
+It installs `/usr/bin/studyplan`, the README and the MIT license, and pulls in
+`yt-dlp`. Uninstall with `sudo pacman -R studyplan-git`; data in
+`~/.local/share/studyplan/` is left in place. The packaging files in
+`packaging/arch/` are licensed under 0BSD.
 
 ## Data
 
