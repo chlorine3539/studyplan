@@ -104,19 +104,3 @@ Set `STUDYPLAN_DATA=/path/to/file.json` to use another location.
 ```sh
 cargo test
 ```
-
-## Local deployment (PRIME A320M-R, Arch Linux)
-
-Installed from the AUR package `studyplan-git`; version `0.1.0` at
-`/usr/bin/studyplan` (checked 2026-11-17). The installed package
-`studyplan-git 0.1.0.r5.g8b8b003-1` was built from `8b8b003`, one commit behind
-the local `master` HEAD `9354f1e` (that commit only adds a README screenshot).
-The published AUR version was older still, `0.1.0.r4.g542d960-1`, as of 2026-11-17.
-
-The source checkout is `~/programming/studyplan/`. Runtime state lives in
-`~/.local/share/studyplan/state.json` (4 courses, 723 videos, `interleave` mode,
-6.5 h/day as of 2026-11-17); preserve it across updates and reinstalls.
-
-Open items: `cargo test` and the `STUDYPLAN_DATA` override were not run locally;
-no backup of the state file was verified; the published AUR version trails the
-local packaging files.
